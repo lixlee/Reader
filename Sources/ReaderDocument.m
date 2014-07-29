@@ -110,6 +110,12 @@
 
 	assert(range.location != NSNotFound); // Ensure that the application path is in the full file path
 
+	if(range.location != NSNotFound)
+	{
+		range.length += range.location;
+		range.location = 0;
+	}
+	
 	return [fullFilePath stringByReplacingCharactersInRange:range withString:@""]; // Strip it out
 }
 
